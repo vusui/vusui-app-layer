@@ -8,7 +8,7 @@ Vusui-app-layer是一个弹层组件库。插件市场版本如果和更新日�
 
 ## 在线演示
 用微信扫描下方二维码打开微信小程序，在线体验Vusui-app-layer组件。
-<p align="center"><a href="https://vusui.github.io" target="_blank" rel="noopener noreferrer"><img width="114" src="https://vusui.github.io/img/mp-qc.37d7e614.jpg"></a></p>
+<p align="left"><a href="https://vusui.github.io" target="_blank" rel="noopener noreferrer"><img width="260" height="260" src="https://vusui.github.io/img/mp-qc.37d7e614.jpg"></a></p>
 
  
 ## 开始使用
