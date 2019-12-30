@@ -1,7 +1,7 @@
 # Vusui-app-layer v1.0
 
 ## 前言
-Vusui-app-layer是一个弹层组件库。插件市场版本如果和更新日志不一样，请移步Github下载。有组件需求或者Bug提交也可以移步到issues。
+Vusui-app-layer是一个基于 uni-app 的弹层组件库。插件市场版本如果和更新日志不一样，请移步Github下载。有组件需求或者Bug提交也可以移步到issues。
 
 ## API 文档手册
 [API文档](https://vusui.github.io/#/app/layer)
@@ -60,3 +60,8 @@ export default {
 
  * 2019年12月30日 v1.0
     *  发布第一个版本
+
+## License
+[MIT](http://opensource.org/licenses/MIT)
+
+Copyright (c) 2017-present, VusUI
