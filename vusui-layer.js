@@ -1,5 +1,5 @@
 /*!
- * @Name：vusui-app-layer v1.0.1 uni-app/小程序弹窗组件
+ * @Name：vusui-app-layer v1.0.2 uni-app/小程序弹窗组件
  * @Site：http://www.vusui.com | https://vusui.github.io
  * @Author：林攀
  * @License：MIT
@@ -93,7 +93,13 @@ export default {
 				},
 				close(state, options) {
 					state[options.type].show = false;
-					uni.showTabBar();
+					if (options.type == 'message') {
+						if (!state.loading.show && !state.prompt.show && !state.drawer.show) {
+							uni.showTabBar();
+						}
+					} else {
+						uni.showTabBar();
+					}
 				}
 			}
 		})

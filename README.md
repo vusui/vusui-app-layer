@@ -57,6 +57,9 @@ export default {
 
 
 ## 更新日志
+ * 2020年01月03日 v1.0.2
+    *  修复关闭层时 showTabBar() 导致不正确的BUG
+	
  * 2020年01月03日 v1.0.1
     *  增加 hideTabBar() 和 showTabBar() 来显示/隐藏原生tabBar功能
 	 
