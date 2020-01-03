@@ -1,5 +1,5 @@
 <!-- 
- * @Name：vusui-app-layer v1.0 uni-app/小程序弹窗组件
+ * @Name：vusui-app-layer [layer] 层入口
  * @Site：http://www.vusui.com | https://vusui.github.io
  * @Author：林攀
  * @License：MIT

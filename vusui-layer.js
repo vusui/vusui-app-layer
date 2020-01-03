@@ -1,5 +1,5 @@
 /*!
- * @Name：vusui-app-layer v1.0 uni-app/小程序弹窗组件
+ * @Name：vusui-app-layer v1.0.1 uni-app/小程序弹窗组件
  * @Site：http://www.vusui.com | https://vusui.github.io
  * @Author：林攀
  * @License：MIT
@@ -7,7 +7,7 @@
  */
 import Vuex from 'vuex';
 import Util from './common/utils.js';
-import './theme/default/vusui-layer.min.css';
+import './theme/default/vusui-layer.css';
 export default {
     install(Vue) {
 		Vue.prototype.$vusuiLayer = new Vuex.Store({
@@ -50,6 +50,7 @@ export default {
 					state[options.type] = Object.assign(state[options.type], options);
 					state[options.type].show = true;
 					state[options.type].zIndex = state.zIndex + state.index++;
+					uni.hideTabBar();
 				},
 				yes(state, options) {
 					Util.closeType(options, this);
@@ -92,6 +93,7 @@ export default {
 				},
 				close(state, options) {
 					state[options.type].show = false;
+					uni.showTabBar();
 				}
 			}
 		})

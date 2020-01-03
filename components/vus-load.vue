@@ -1,5 +1,5 @@
 <!-- 
- * @Name：vusui-app-layer v1.0 uni-app/小程序弹窗组件
+ * @Name：vusui-app-layer [load] 加载层
  * @Site：http://www.vusui.com | https://vusui.github.io
  * @Author：林攀
  * @License：MIT
@@ -8,8 +8,8 @@
 <template>
 	<view class="vus-layer" :style="setLayerStyle">
 		<view class="vus-layer-loading vus-layer-anim" :class="addAnim">
-			<view class="vus-layer-close" v-if="options.closeBtn">
-				<view class="vli-close" @click="close"></view>
+			<view class="vus-layer-close" v-if="options.closeBtn" @click="close">
+				<view class="vli-close"></view>
 			</view>
 			<view class="vus-layer-padding" :class="{'is-noicon':options.icon==-1}">
 				<block v-if="options.icon!=-1">
