@@ -29,6 +29,18 @@
 				<slot name="drawer"></slot>
 			</vus-drawer>
 		</block>
+		<block v-else-if="options.page.show">
+			<vus-mask :options="options.page" />
+			<vus-page v-if="options.page.show">
+				<slot name="page"></slot>
+			</vus-page>
+		</block>
+		<block v-else-if="options.photos.show">
+			<vus-mask :options="options.photos" />
+			<vus-photos v-if="options.photos.show">
+				<slot name="photos"></slot>
+			</vus-photos>
+		</block>
 	</view>
 </template>
 
@@ -40,6 +52,8 @@ import vusMsg from "./components/vus-msg.vue";
 import vusLoad from "./components/vus-load.vue";
 import vusPrompt from "./components/vus-prompt.vue";
 import vusDrawer from "./components/vus-drawer.vue";
+import vusPage from "./components/vus-page.vue";
+import vusPhotos from "./components/vus-photos.vue";
 export default {
 	name: 'vusLayer',
 	data() {
@@ -51,7 +65,9 @@ export default {
 		vusMsg,
 		vusLoad,
 		vusPrompt,
-		vusDrawer
+		vusDrawer,
+		vusPage,
+		vusPhotos
 	},
 	computed: {
 		options() {

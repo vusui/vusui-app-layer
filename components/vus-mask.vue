@@ -51,7 +51,7 @@ export default {
 					this.options.hide = false;
 					this.$vusuiLayer.commit('close', this.options);
 					this.$vusuiLayer.commit('hideAnim', this.options);
-				}, 200);
+				}, 300);
 			} else {
 				this.options.hide = false;
 				this.$vusuiLayer.commit('close', this.options);

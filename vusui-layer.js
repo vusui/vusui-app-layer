@@ -1,5 +1,5 @@
 /*!
- * @Name：vusui-app-layer v1.0.2 uni-app/小程序弹窗组件
+ * @Name：vusui-app-layer v1.0.3 uni-app/小程序弹窗组件
  * @Site：http://www.vusui.com | https://vusui.github.io
  * @Author：林攀
  * @License：MIT
@@ -43,6 +43,18 @@ export default {
 					hide: false,
 					type: 'drawer',
 					zIndex: 0
+				},
+				page: {
+					show: false,
+					hide: false,
+					type: 'page',
+					zIndex: 0
+				},
+				photos: {
+					show: false,
+					hide: false,
+					type: 'photos',
+					zIndex: 0
 				}
 			},
 			mutations: {
@@ -57,11 +69,11 @@ export default {
 					if (options.outAnim !== -1) {
 						setTimeout(() => {
 							options.yes && options.yes(options);
-						}, 220);
+						}, 330);
 					} else {
 						setTimeout(() => {
 							options.yes && options.yes(options);
-						}, 10);
+						}, 30);
 					}
 				},
 				cancel(state, options) {
@@ -69,11 +81,11 @@ export default {
 					if (options.outAnim !== -1) {
 						setTimeout(() => {
 							options.cancel && options.cancel(options);
-						}, 220);
+						}, 330);
 					} else {
 						setTimeout(() => {
 							options.cancel && options.cancel(options);
-						}, 10);
+						}, 30);
 					}
 				},
 				btn(state, options) {
@@ -81,11 +93,11 @@ export default {
 					if (options.outAnim !== -1) {
 						setTimeout(() => {
 							options['btn'+options.btnIndex] && options['btn'+options.btnIndex](options);
-						}, 220);
+						}, 330);
 					} else {
 						setTimeout(() => {
 							options['btn'+options.btnIndex] && options['btn'+options.btnIndex](options);
-						}, 10);
+						}, 30);
 					}
 				},
 				hideAnim(state, options) {
@@ -94,7 +106,7 @@ export default {
 				close(state, options) {
 					state[options.type].show = false;
 					if (options.type == 'message') {
-						if (!state.loading.show && !state.prompt.show && !state.drawer.show) {
+						if (!state.loading.show && !state.prompt.show && !state.drawer.show && !state.page.show && !state.photos.show) {
 							uni.showTabBar();
 						}
 					} else {
@@ -261,13 +273,46 @@ export default {
                     return options;
                 }()));
 			},
+			page(options) {
+				return this.open(Object.assign({
+					type: 'page',
+					title: false, //标题
+					content: '', //['内容', 'font-size:26px']
+					shadeClose: false, //点击遮罩关闭
+					button: '', //按钮 ['btn1','btn2',...]
+					buttonAlign: '', //按钮对齐位置left,center,right
+					closeBtn: true, //关闭按钮
+					anim: 0, //0-6
+					outAnim: 0, //0-6
+					shade: 0.3, //遮罩透明度 0-1
+					yes: null, //确定回调
+					cancel: null, //取消回调
+					btn1: null,
+					btn2: null,
+					btn3: null,
+			    }, options));
+			},
+			photos(options) {
+				return this.open(Object.assign({
+					type: 'photos',
+					title: false, //是否显示标题
+					content: '',
+					number: false, //是否显示页码
+					shade: 0.8,
+					shadeClose: true,
+					closeBtn: true,
+					anim: 0,
+					outAnim: 0,
+					time: 0
+				}, options));
+			},
 			close(type) {
 				const store = Vue.prototype.$vusuiLayer;
 				Util.close(store.state[type], store);
 			},
 			closeAll() {
 				const store = Vue.prototype.$vusuiLayer;
-				const types = ['dialog','message','loading','prompt','drawer'];
+				const types = ['dialog','message','loading','prompt','drawer','page','photos'];
 				types.map(item => {
 					Util.close(store.state[item], store);
 				});

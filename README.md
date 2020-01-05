@@ -38,9 +38,7 @@ const app = new Vue({
 app.$mount()
 ```
 
-------
-
-最后一步，在需要用到 `Vusui-app-layer` 弹层组件的页面写入 `vus-layer` 组件。
+第四步（`重要`）：在需要用到 `Vusui-app-layer` 弹层组件的页面写入 `vus-layer` 组件。
 ```
 <template>
     <view>
@@ -57,6 +55,12 @@ export default {
 
 
 ## 更新日志
+ * 2020年01月05日 v1.0.3
+    *  新增 page 页面层
+	*  新增 photos 图集层
+	*  修改 load 加载层动画效果
+	*  优化弹层动画
+	
  * 2020年01月03日 v1.0.2
     *  修复关闭层时 showTabBar() 导致不正确的BUG
 	
