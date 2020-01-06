@@ -1,5 +1,5 @@
 /*!
- * @Name：vusui-app-layer v1.0.3 uni-app/小程序弹窗组件
+ * @Name：vusui-app-layer v1.0.4 uni-app/小程序弹窗组件
  * @Site：http://www.vusui.com | https://vusui.github.io
  * @Author：林攀
  * @License：MIT
@@ -62,14 +62,16 @@ export default {
 					state[options.type] = Object.assign(state[options.type], options);
 					state[options.type].show = true;
 					state[options.type].zIndex = state.zIndex + state.index++;
-					uni.hideTabBar();
+					// #ifndef H5
+					state[options.type].tabBar && uni.hideTabBar();
+					// #endif
 				},
 				yes(state, options) {
 					Util.closeType(options, this);
 					if (options.outAnim !== -1) {
 						setTimeout(() => {
 							options.yes && options.yes(options);
-						}, 330);
+						}, 300);
 					} else {
 						setTimeout(() => {
 							options.yes && options.yes(options);
@@ -81,7 +83,7 @@ export default {
 					if (options.outAnim !== -1) {
 						setTimeout(() => {
 							options.cancel && options.cancel(options);
-						}, 330);
+						}, 300);
 					} else {
 						setTimeout(() => {
 							options.cancel && options.cancel(options);
@@ -93,7 +95,7 @@ export default {
 					if (options.outAnim !== -1) {
 						setTimeout(() => {
 							options['btn'+options.btnIndex] && options['btn'+options.btnIndex](options);
-						}, 330);
+						}, 300);
 					} else {
 						setTimeout(() => {
 							options['btn'+options.btnIndex] && options['btn'+options.btnIndex](options);
@@ -105,13 +107,23 @@ export default {
 				},
 				close(state, options) {
 					state[options.type].show = false;
-					if (options.type == 'message') {
-						if (!state.loading.show && !state.prompt.show && !state.drawer.show && !state.page.show && !state.photos.show) {
-							uni.showTabBar();
+					// #ifndef H5
+					if (options.type == 'message' || options.type == 'loading') {
+						if (!state.prompt.show && !state.drawer.show && !state.page.show && !state.photos.show) {
+							state[options.type].tabBar && uni.showTabBar();
+						}
+					} else if (options.type == 'dialog') {
+						if (!state.prompt.show && !state.drawer.show && !state.page.show && !state.photos.show) {
+							state[options.type].tabBar && uni.showTabBar();
+						}
+					} else if (options.type == 'prompt') {
+						if (!state.drawer.show && !state.page.show && !state.photos.show) {
+							state[options.type].tabBar && uni.showTabBar();
 						}
 					} else {
-						uni.showTabBar();
+						state[options.type].tabBar && uni.showTabBar();
 					}
+					// #endif
 				}
 			}
 		})
@@ -135,6 +147,7 @@ export default {
 					icon: -1, //['0','font-size:18px;'] 0-5
 					time: 0, //0为不自动关闭,单位毫秒
 					shade: 0.3, //遮罩透明度 0-1
+					tabBar: true, //弹出层时是否隐藏原生tabBar导航栏
 					yes: yes, //确定回调
 					cancel: null, //取消回调
 					btn1: null,
@@ -161,6 +174,7 @@ export default {
 					icon: 4, //['0','font-size:18px;'] 0-5
 					time: 0, //0为不自动关闭,单位毫秒
 					shade: 0.3, //遮罩透明度 0-1
+					tabBar: true, //弹出层时是否隐藏原生tabBar导航栏
 					yes: yes, //确定回调
 					cancel: cancel, //取消回调
 					btn1: null,
@@ -181,6 +195,7 @@ export default {
 					button: false,
 					buttonAlign: '',
 					closeBtn: false,
+					tabBar: true, //弹出层时是否隐藏原生tabBar导航栏
 					anim: 0,
 					outAnim: 0,
 					icon: -1,
@@ -199,6 +214,7 @@ export default {
 					button: false,
 					buttonAlign: '',
 					closeBtn: false,
+					tabBar: true, //弹出层时是否隐藏原生tabBar导航栏
 					anim: 0,
 					outAnim: 0,
 					icon: icon || 0,
@@ -223,6 +239,7 @@ export default {
 					shade: 0.3,
 					shadeClose: false,
 					button: ['确定', '取消'],
+					tabBar: true, //弹出层时是否隐藏原生tabBar导航栏
 					anim: 0,
 					outAnim: 0,
 					cancel: null,
@@ -250,6 +267,7 @@ export default {
 				    anim: 4,
 				    outAnim: 4,
 				    time: 0,
+					tabBar: true, //弹出层时是否隐藏原生tabBar导航栏
 				    yes: null,
 				    cancel: null,
 					btn1: null,
@@ -282,6 +300,7 @@ export default {
 					button: '', //按钮 ['btn1','btn2',...]
 					buttonAlign: '', //按钮对齐位置left,center,right
 					closeBtn: true, //关闭按钮
+					tabBar: true, //弹出层时是否隐藏原生tabBar导航栏
 					anim: 0, //0-6
 					outAnim: 0, //0-6
 					shade: 0.3, //遮罩透明度 0-1
@@ -301,6 +320,7 @@ export default {
 					shade: 0.8,
 					shadeClose: true,
 					closeBtn: true,
+					tabBar: true, //弹出层时是否隐藏原生tabBar导航栏
 					anim: 0,
 					outAnim: 0,
 					time: 0

@@ -15,13 +15,13 @@
 			<vus-mask :options="options.message" />
 			<vus-msg v-if="options.message.show" />
 		</block>
+		<block v-else-if="options.loading.show">
+			<vus-mask :options="options.loading" />
+			<vus-load v-if="options.loading.show" />
+		</block>
 		<block v-if="options.prompt.show">
 			<vus-mask :options="options.prompt" />
 			<vus-prompt v-if="options.prompt.show" />
-		</block>
-		<block v-if="options.loading.show">
-			<vus-mask :options="options.loading" />
-			<vus-load v-if="options.loading.show" />
 		</block>
 		<block v-if="options.drawer.show">
 			<vus-mask :options="options.drawer" />

@@ -55,6 +55,11 @@ export default {
 
 
 ## 更新日志
+ * 2020年01月07日 v1.0.4
+	*  增加 tabBar 属性，设置可控显示或隐藏 tabBar 导航栏
+	*  优化 vusui-layer.vue
+    *  优化 css 动画等
+
  * 2020年01月05日 v1.0.3
     *  新增 page 页面层
 	*  新增 photos 图集层

@@ -39,7 +39,7 @@ export default class Util {
 				options.hide = false;
 				store.commit('close', options);
 				store.commit('hideAnim', options);
-			}, 330);
+			}, 300);
 		} else {
 			options.hide = false;
 			store.commit('close', options);
