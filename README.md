@@ -1,7 +1,11 @@
 # Vusui-app-layer
 
 ## 前言
-Vusui-app-layer 是一个基于 uni-app 的弹层组件库。插件市场版本如果和更新日志不一样，请移步 Github 下载。有组件需求或者 Bug 提交也可以移步到 issues。
+Vusui-app-layer 是一个基于 uni-app 的弹层组件库。`插件市场版本如果和更新日志不一样，请移步 Github 下载`。有组件需求或者 Bug 提交也可以移步到 issues。
+
+## 特别说明
+* Vusui-app-layer 是一个非原生的组件库，是无法覆盖原生 tabBar导航栏 与 navigationBar标题栏的。所以，有这方面问题的童鞋请先了解 uni-app 或者小程序相关组件和API文档。
+* Vusui-app-layer 组件库使用的是 HX 2.4 以上版本开发的，在APP、H5、小程序上测试是没有问题的，低版本的 HX、小程序和浏览器不保证能正常使用。
 
 ## API 文档手册
 [查看API文档](https://vusui.github.io/#/app/layer)
@@ -53,8 +57,10 @@ export default {
 </script>
 ```
 
-
 ## 更新日志
+ * 2020年01月11日 v1.0.5
+    *  删除 css svg 动画，改为 image 动画。
+ 
  * 2020年01月06日 v1.0.4
 	*  增加 tabBar 属性，设置可控显示或隐藏 tabBar 导航栏
 	*  优化 vusui-layer.vue

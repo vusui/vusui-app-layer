@@ -1,5 +1,5 @@
 /*!
- * @Name：vusui-app-layer v1.0.4 uni-app/小程序弹窗组件
+ * @Name：vusui-app-layer v1.0.5 uni-app/小程序弹窗组件
  * @Site：http://www.vusui.com | https://vusui.github.io
  * @Author：林攀
  * @License：MIT
@@ -58,6 +58,7 @@ export default {
 				}
 			},
 			mutations: {
+				// 核心方法
 				open(state, options) {
 					state[options.type] = Object.assign(state[options.type], options);
 					state[options.type].show = true;
@@ -66,6 +67,7 @@ export default {
 					state[options.type].tabBar && uni.hideTabBar();
 					// #endif
 				},
+				// 确定按钮事件
 				yes(state, options) {
 					Util.closeType(options, this);
 					if (options.outAnim !== -1) {
@@ -78,6 +80,7 @@ export default {
 						}, 30);
 					}
 				},
+				// 取消按钮事件
 				cancel(state, options) {
 					Util.closeType(options, this);
 					if (options.outAnim !== -1) {
@@ -90,6 +93,7 @@ export default {
 						}, 30);
 					}
 				},
+				// 自定义按钮事件
 				btn(state, options) {
 					Util.closeType(options, this);
 					if (options.outAnim !== -1) {
@@ -102,9 +106,11 @@ export default {
 						}, 30);
 					}
 				},
+				// 关闭层时的退出动画效果
 				hideAnim(state, options) {
 					state[options.type].hide = options.hide;
 				},
+				// 关闭指定层
 				close(state, options) {
 					state[options.type].show = false;
 					// #ifndef H5
@@ -131,6 +137,7 @@ export default {
 			open(options) {
 				Vue.prototype.$vusuiLayer.commit('open', options);
 			},
+			// 提示框
 			alert(content, options, yes) {
 				let type = typeof options === 'function';
                 if (type) yes = options;
@@ -155,6 +162,7 @@ export default {
 					btn3: null,
                 }, type ? {} : options));
 			},
+			// 询问框
 			confirm(content, options, yes, cancel) {
 				let type = typeof options === 'function';
 				if (type) {
@@ -182,6 +190,7 @@ export default {
 					btn3: null,
 				}, type ? {} : options));
 			},
+			// 信息提示
 			msg(content, options, cancel) {
 				let type = typeof options === 'function';
 			    if (type) cancel = options;
@@ -203,6 +212,7 @@ export default {
 					cancel: cancel
 			    }, type ? {} : options));
 			},
+			// 加载层
 			load(icon, options) {
 				return this.open(Object.assign({
 					type: 'loading',
@@ -221,6 +231,7 @@ export default {
 					time: 0
 				}, options));
 			},
+			// 输入层
 			prompt(options, yes) {
                 options = options || {};
                 if (typeof options === 'function') yes = options;
@@ -256,6 +267,7 @@ export default {
                     }
 				}, options));
 			},
+			// 抽屉层
 			drawer(position, options) {
 				return this.open(Object.assign({
 				    type: 'drawer',
@@ -291,6 +303,7 @@ export default {
                     return options;
                 }()));
 			},
+			// 页面层
 			page(options) {
 				return this.open(Object.assign({
 					type: 'page',
@@ -311,6 +324,7 @@ export default {
 					btn3: null,
 			    }, options));
 			},
+			// 相集层
 			photos(options) {
 				return this.open(Object.assign({
 					type: 'photos',
@@ -326,10 +340,12 @@ export default {
 					time: 0
 				}, options));
 			},
+			// 关闭指定层
 			close(type) {
 				const store = Vue.prototype.$vusuiLayer;
 				Util.close(store.state[type], store);
 			},
+			// 关闭所有层
 			closeAll() {
 				const store = Vue.prototype.$vusuiLayer;
 				const types = ['dialog','message','loading','prompt','drawer','page','photos'];

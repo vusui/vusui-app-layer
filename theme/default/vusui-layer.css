@@ -510,64 +510,66 @@
 .vus-layer-loading .vus-layer-loading-0 {
 	width: 70upx;
 	height: 70upx;
-	display: block;
-	-webkit-transform-origin: 50%;
-	transform-origin: 50%;
-	animation: VusLoadTypeSpin0 1s step-end infinite;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation: VusLoadTypeSpin0 1s 0s step-end infinite;
 }
-
-.vus-layer-loading .vus-layer-loading-0::after {
-	display: block;
-	width: 100%;
-	height: 100%;
-	content: '';
-	background-image: url("data:image/svg+xml;charset=utf-8,<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><defs><line id=\"l\" x1=\"60\" x2=\"60\" y1=\"7\" y2=\"27\" stroke=\"%23fff\" stroke-width=\"11\" stroke-linecap=\"round\"/></defs><g><use xlink:href=\"%23l\" opacity=\".1\"/><use xlink:href=\"%23l\" opacity=\".15\" transform=\"rotate(30 60,60)\"/><use xlink:href=\"%23l\" opacity=\".2\" transform=\"rotate(60 60,60)\"/><use xlink:href=\"%23l\" opacity=\".25\" transform=\"rotate(90 60,60)\"/><use xlink:href=\"%23l\" opacity=\".3\" transform=\"rotate(120 60,60)\"/><use xlink:href=\"%23l\" opacity=\".3\" transform=\"rotate(150 60,60)\"/><use xlink:href=\"%23l\" opacity=\".45\" transform=\"rotate(180 60,60)\"/><use xlink:href=\"%23l\" opacity=\".55\" transform=\"rotate(210 60,60)\"/><use xlink:href=\"%23l\" opacity=\".65\" transform=\"rotate(240 60,60)\"/><use xlink:href=\"%23l\" opacity=\".75\" transform=\"rotate(270 60,60)\"/><use xlink:href=\"%23l\" opacity=\".85\" transform=\"rotate(300 60,60)\"/><use xlink:href=\"%23l\" opacity=\"1\" transform=\"rotate(330 60,60)\"/></g></svg>");
-	background-repeat: no-repeat;
-	background-position: 50%;
-	background-size: 100%;
-}
-
 @keyframes VusLoadTypeSpin0 {
-	0% {
-		transform: rotate(0deg)
+		0% {
+			transform: rotate(0deg);
+		}
+
+		8% {
+			transform: rotate(30deg);
+		}
+
+		16% {
+			transform: rotate(60deg);
+		}
+
+		24% {
+			transform: rotate(90deg);
+		}
+
+		32% {
+			transform: rotate(120deg);
+		}
+
+		40% {
+			transform: rotate(150deg);
+		}
+
+		48% {
+			transform: rotate(180deg);
+		}
+
+		56% {
+			transform: rotate(210deg);
+		}
+
+		64% {
+			transform: rotate(240deg);
+		}
+
+		73% {
+			transform: rotate(270deg);
+		}
+
+		82% {
+			transform: rotate(300deg);
+		}
+
+		91% {
+			transform: rotate(330deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
 	}
-	8.33333333% {
-		transform: rotate(30deg)
-	}
-	16.66666667% {
-		transform: rotate(60deg)
-	}
-	25% {
-		transform: rotate(90deg)
-	}
-	33.33333333% {
-		transform: rotate(120deg)
-	}
-	41.66666667% {
-		transform: rotate(150deg)
-	}
-	50% {
-		transform: rotate(180deg)
-	}
-	58.33333333% {
-		transform: rotate(210deg)
-	}
-	66.66666667% {
-		transform: rotate(240deg)
-	}
-	75% {
-		transform: rotate(270deg)
-	}
-	83.33333333% {
-		transform: rotate(300deg)
-	}
-	91.66666667% {
-		transform: rotate(330deg)
-	}
-	100% {
-		transform: rotate(360deg)
-	}
-}
+
 
 /* type1 */
 .vus-layer-loading .vus-layer-loading-1 {
@@ -626,27 +628,21 @@
 
 /* type3 */
 .vus-layer-loading .vus-layer-loading-3 {
-	width: 70upx;
-	height: 70upx;
-	display: block;
-	-webkit-transform-origin: 50%;
-	transform-origin: 50%;
-	animation: VusLoadTypeSpin0 1s step-end infinite;
+    height: 70upx;
+    width: 70upx;
+    border-radius: 50%;
+    border: 6upx solid rgba(255,255,255,.9);
+    border-bottom-color: transparent;
+    animation: VusLoadTypeSpin3 0.75s linear infinite;
 }
-
-.vus-layer-loading .vus-layer-loading-3::after {
-	display: block;
-	width: 100%;
-	height: 100%;
-	content: '';
-	background-image: url("data:image/svg+xml;charset=utf-8,<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><defs><line id=\"l\" x1=\"60\" x2=\"60\" y1=\"10\" y2=\"10\" stroke=\"%23fff\" stroke-width=\"20\" stroke-linecap=\"round\"/></defs><g><use xlink:href=\"%23l\" opacity=\".1\"/><use xlink:href=\"%23l\" opacity=\".15\" transform=\"rotate(30 60,60)\"/><use xlink:href=\"%23l\" opacity=\".2\" transform=\"rotate(60 60,60)\"/><use xlink:href=\"%23l\" opacity=\".25\" transform=\"rotate(90 60,60)\"/><use xlink:href=\"%23l\" opacity=\".3\" transform=\"rotate(120 60,60)\"/><use xlink:href=\"%23l\" opacity=\".3\" transform=\"rotate(150 60,60)\"/><use xlink:href=\"%23l\" opacity=\".45\" transform=\"rotate(180 60,60)\"/><use xlink:href=\"%23l\" opacity=\".55\" transform=\"rotate(210 60,60)\"/><use xlink:href=\"%23l\" opacity=\".65\" transform=\"rotate(240 60,60)\"/><use xlink:href=\"%23l\" opacity=\".75\" transform=\"rotate(270 60,60)\"/><use xlink:href=\"%23l\" opacity=\".85\" transform=\"rotate(300 60,60)\"/><use xlink:href=\"%23l\" opacity=\"1\" transform=\"rotate(330 60,60)\"/></g></svg>");
-	background-repeat: no-repeat;
-	background-position: 100%;
-	background-size: 100%;
+@keyframes VusLoadTypeSpin3 {
+    0% {
+		transform: rotate(0deg);
+	}
+    100% {
+		transform: rotate(360deg);
+	}
 }
-
-
-
 
 
 /* 动画 */
